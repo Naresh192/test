@@ -1,6 +1,10 @@
 import streamlit as st
 import pickle 
 st.set_page_config(layout="wide") # for making UI wide
+
+st.markdown('''data-testid="stToolbar" {
+  visibility: hidden;
+}''',unsafe_allow_html=True)
 try :
     video = open('video.pkl', 'rb')
 except :
