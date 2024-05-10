@@ -20,10 +20,10 @@ except :
     chat.close()
     chat = open('chat.pkl', 'rb')
 l=pickle.load(video)
-video_url=st.text_input("URL",'')
-if video_url!='' and video_url!='None':
+video_url=st.text_input("URL",'None')
+if video_url!='None':
     video_player = st.video(video_url,autoplay=True)
-elif l!='' and l!='None' :
+elif l!='None' :
     video_player = st.video(l)
 else :
     pass
