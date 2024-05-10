@@ -25,6 +25,8 @@ if video_url!='None':
     video_player = st.video(video_url,autoplay=True)
 elif l!='None' :
     video_player = st.video(l)
+elif video_url=='None' :
+    video_player = st.video(l)
 else :
     pass
 chat=pickle.load(chat)
