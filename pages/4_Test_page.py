@@ -1,5 +1,6 @@
 import streamlit as st
 import pickle 
+st.set_page_config(layout="wide") # for making UI wide
 try :
     video = open('video.pkl', 'rb')
 except :
@@ -18,7 +19,6 @@ l=pickle.load(video)
 video_url=st.text_input("URL",'')
 if video_url!='' and video_url!='None':
     video_player = st.video(video_url,autoplay=True)
-    st.write(dir(video_player))
 elif l!='' and l!='None' :
     video_player = st.video(l)
 else :
@@ -27,7 +27,8 @@ chat=pickle.load(chat)
 message=st.text_input('Text','')
 if st.button("Send") :
     chat.append(message)
-st.write(chat)
+for i in chat :
+    st.write(i)
 if st.button("Clear Chat") :
     chat=[]
 
