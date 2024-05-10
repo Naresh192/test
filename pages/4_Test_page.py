@@ -27,10 +27,11 @@ chat=pickle.load(chat)
 message=st.text_input('Text','')
 if st.button("Send") :
     chat.append(message)
-for i in chat :
-    st.write(i)
+st.write(chat)
 if st.button("Clear Chat") :
     chat=[]
 
 video = open('video.pkl', 'wb')
 pickle.dump(video_url, video)
+chat2 = open('chat.pkl', 'wb')
+pickle.dump(chat, chat2)
