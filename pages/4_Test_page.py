@@ -47,8 +47,8 @@ if st.button("Refresh Chat") :
 
 if st.button("Clear Chat") :
     chat=[]
-
-video = open('video.pkl', 'wb')
-pickle.dump(video_url, video)
+if video_url!='None' :
+    video = open('video.pkl', 'wb')
+    pickle.dump(video_url, video)
 chat2 = open('chat.pkl', 'wb')
 pickle.dump(chat, chat2)
