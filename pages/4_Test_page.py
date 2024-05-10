@@ -1,6 +1,5 @@
 import streamlit as st
 import pickle 
-import time
 st.set_page_config(layout="wide") # for making UI wide
 
 st.markdown('''<style>div[data-testid="stToolbar"] {
@@ -20,10 +19,7 @@ except :
     pickle.dump([], chat)
     chat.close()
     chat = open('chat.pkl', 'rb')
-try :
-    l=pickle.load(video)
-except :
-    l=''
+l=pickle.load(video)
 video_url=st.text_input("URL",'')
 if video_url!='' and video_url!='None':
     video_player = st.video(video_url,autoplay=True)
@@ -35,8 +31,18 @@ chat=pickle.load(chat)
 message=st.text_input('Text','')
 if st.button("Send") :
     chat.append(message)
+a=st.empty()
+chats=''
 for i in chat :
-    st.write(i)
+    chats+='\n'+i
+a.text(chats)
+if st.button("Refresh Chat") :
+    a.empty()
+    chats=''
+    for i in chat :
+        chats+='\n'+i
+    a.text(chats)
+
 if st.button("Clear Chat") :
     chat=[]
 
@@ -44,6 +50,3 @@ video = open('video.pkl', 'wb')
 pickle.dump(video_url, video)
 chat2 = open('chat.pkl', 'wb')
 pickle.dump(chat, chat2)
-while True :
-    time.sleep(5)
-    st.rerun()
