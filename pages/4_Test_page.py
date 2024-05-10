@@ -2,7 +2,7 @@ import streamlit as st
 import pickle 
 st.set_page_config(layout="wide") # for making UI wide
 
-st.markdown('''<style>data-testid="stToolbar" {
+st.markdown('''<style>div[data-testid="stToolbar"] {
   visibility: hidden;
 }</style>''',unsafe_allow_html=True)
 try :
