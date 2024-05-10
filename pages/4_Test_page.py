@@ -33,13 +33,13 @@ if st.button("Send") :
     chat.append(message)
 a=st.empty()
 chats=''
-for i in chat :
+for i in chat[::-1] :
     chats+='\n'+i
 a.text(chats)
 if st.button("Refresh Chat") :
     a.empty()
     chats=''
-    for i in chat :
+    for i in chat[::-1] :
         chats+='\n'+i
     a.text(chats)
 
