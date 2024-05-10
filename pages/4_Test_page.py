@@ -9,7 +9,7 @@ try :
     video = open('video.pkl', 'rb')
 except :
     video = open('video.pkl', 'wb')
-    pickle.dump('', video)
+    pickle.dump('None', video)
     video.close()
     video = open('video.pkl', 'rb')
 try :
